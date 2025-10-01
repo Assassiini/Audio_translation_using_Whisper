@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONUNBUFFERED": "1",
+                "M2_APP_UUID": "a3b8ee67-1f0e-4643-963f-32bc3262f0f5",
+                "M2_AUTH_SERVER_URL": "https://m2-platform-f6b6-v.apps.ocp01.airbus.corp",
+                "REQUESTS_CA_BUNDLE": "C:/ProgramData/.cert/cacerts-airbus.pem",
+                "SSL_CERT_FILE":  "C:/ProgramData/.cert/cacerts-airbus.pem"
+            }
+        }
+    ]
+}
