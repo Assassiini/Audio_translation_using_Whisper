@@ -1,36 +1,46 @@
-# Audio Translation Using Whisper
+# Audio Translation Using Whisper Model
 
-A Flask-based web application that translates spoken audio from one language to another using OpenAI’s Whisper model and returns translated speech output.
+A Flask-based web application that translates spoken audio into a target language using OpenAI’s Whisper model and generates translated speech output. The project demonstrates end-to-end audio upload handling, speech-to-text translation, and audio generation in a web application.
 
 ## Overview
-This project allows users to upload an audio file, transcribe and translate the spoken content into a target language, and generate a translated audio output. It demonstrates end-to-end handling of audio input, speech-to-text, translation, and text-to-speech within a web application.
+This application allows users to upload an audio file through a web interface. The audio is processed using OpenAI’s Whisper model to transcribe and translate the speech. The translated text is then converted into an audio file and returned to the user.
+
+The project focuses on practical integration of speech models into a backend service, including secure file handling and cleanup.
 
 ## Features
-- Upload audio files for translation
-- Automatic speech recognition using Whisper
-- Language translation of transcribed text
-- Audio output generation for translated speech
-- Simple web interface built with Flask
+- Audio file upload via web interface
+- Speech-to-text translation using OpenAI Whisper
+- Translated speech audio generation
+- Temporary file handling with automatic cleanup
+- Flask-based backend with HTML frontend
 
 ## Tech Stack
 - Python
 - Langchain
 - Gen AI
 - Flask
-- OpenAI Whisper Model
+- OpenAI Whisper API
 - HTML / CSS
-- dotenv
 
 ## Project Structure
-.
-├── app.py               # Main Flask application  
-├── demo.py              # Demo / testing script  
-├── requirements.txt     # Python dependencies  
-├── templates/  
-│   └── index.html       # Web interface  
-├── static/  
-│   └── *.mp3            # Sample and generated audio files  
-└── LICENSE  
+  
+    ├── app.py                   # Main Flask application and API logic
+    ├── demo.py                  # Standalone Whisper translation test script
+    ├── requirements.txt         # Python dependencies
+    ├── templates/
+    │   └── index.html           # Web interface
+    ├── static/                  # Generated and sample audio files
+    ├── *.mp3                    # Sample audio inputs
+    ├── LICENSE
+    └── .gitignore
+
+## How It Works
+1. User uploads an audio file through the web interface.
+2. The server saves the file securely with a unique filename.
+3. Whisper translates the spoken content into text.
+4. The translated text is converted into speech audio.
+5. The translated audio file is returned to the user.
+6. Temporary input and output files are deleted after processing.
 
 ## Setup Instructions
 
@@ -47,7 +57,7 @@ pip install -r requirements.txt
 
 ### 4. Configure environment variables
 Create a `.env` file in the root directory and add:
-OPENAI_API_KEY=your_api_key_here  
+OPENAI_API_KEY=your_openai_api_key  
 
 ### 5. Run the application
 python app.py  
@@ -56,21 +66,20 @@ The application will be available at:
 http://localhost:8080  
 
 ## Usage
-1. Open the web interface in your browser.
-2. Upload an audio file.
-3. Select the target language.
-4. Submit the request to receive translated audio output.
+- Open the web interface in a browser
+- Upload an audio file containing spoken language
+- Receive translated speech output as an audio file
 
 ## Notes
-- Uploaded and generated audio files are stored temporarily.
-- Basic error handling is included for invalid inputs and API failures.
-- This project is intended for learning and demonstration purposes.
+- Uploaded and generated audio files are deleted after processing.
+- The demo.py file is provided for testing Whisper translation independently.
+- SSL verification is disabled in demo.py for local testing purposes only.
 
 ## Future Improvements
 - Support for additional audio formats
-- Automatic language detection
-- Improved UI and accessibility
-- Production-ready deployment setup
+- Language auto-detection
+- Improved frontend UI
+- Production-ready deployment configuration
 
 ## License
 This project is licensed under the MIT License.
